@@ -11,6 +11,6 @@
       overlays = [ overlay ];
     in {
       inherit overlay overlays;
-    } 
+    };
 }
 
