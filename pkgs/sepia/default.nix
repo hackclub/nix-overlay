@@ -17,7 +17,7 @@ pkgs.buildGoModule rec  {
   meta = with lib; {
     description = "A minimal functional programming language";
     homepage = "https://github.com/rishiosaur/sepiago";
-    license = licences.asl20;
+    license = licenses.asl20;
     platforms = platforms.linux ++ platforms.darwin;
   };
 }
