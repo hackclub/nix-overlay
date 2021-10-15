@@ -1,21 +1,18 @@
-{ buildGoModule
-, fetchFromGithub
+{ lib
+, pkgs
 }:
 
-buildGoModule rec = {
-  pname = "sepia";
-  version = "0.1";
+pkgs.buildGoModule rec  {
+  name = "sepia";
 
-  src = fetchFromGithub {
+  src = pkgs.fetchFromGitHub {
     owner = "rishiosaur";
+    rev = "7e23793ca7fc215d0a928b6ebb2628c1c3eb492c";
     repo = "sepiago";
-    rev = "v${version}";
-    sha256 = "00000000000000";
+    sha256 = "15216xma5n7lpdapm4crljad7i76b9nq14h7mq61qc72nyfivr7v";
   };
 
-  vendorSha256 = "000000";
-
-  runVend = true;
+  vendorSha256 = null;
 
   meta = with lib; {
     description = "A minimal functional programming language";
@@ -23,7 +20,7 @@ buildGoModule rec = {
     license = licences.asl20;
     platforms = platforms.linux ++ platforms.darwin;
   };
-};
+}
 
 
 
