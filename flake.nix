@@ -9,6 +9,7 @@
     let
       overlay = import ./pkgs;
     in flake-utils.lib.eachSystem flake-utils.lib.allSystems (system: {
+      inherit overlay;
       overlays = [overlay];
     }); 
 }
