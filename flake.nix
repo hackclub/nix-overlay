@@ -2,7 +2,7 @@
   description = "Nix overlay for projects by the Hack Club community";
   
   inputs = {
-    flake-utils.url = "github.com:numtide/flake-utils";
+    flake-utils.url = "github:numtide/flake-utils";
   };
 
   outputs = { self, flake-utils, nixpkgs }: 
