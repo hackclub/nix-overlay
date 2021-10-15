@@ -8,8 +8,8 @@
   outputs = { self, flake-utils, nixpkgs }: 
     let 
       overlay = ./pkgs;
-    in flake-utils.lib.eachDefaultSystem (system:
-      overlays = [overlay];
-    ); 
+    in flake-utils.lib.eachSystem flake-utils.lib.allSystems (system: {
+       overlays = [overlay];
+    }); 
 }
 
