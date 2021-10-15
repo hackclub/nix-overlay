@@ -6,8 +6,10 @@
   };
 
   outputs = { self, flake-utils, nixpkgs }: 
-    flake-utils.lib.eachSystem flake-utils.lib.allSystems (system: {
-       overlays = [(import ./pkgs)];
+    let
+      overlay = import ./pkgs;
+    in flake-utils.lib.eachSystem flake-utils.lib.allSystems (system: {
+      overlays = [overlay];
     }); 
 }
 
