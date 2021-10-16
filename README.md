@@ -1,16 +1,18 @@
 # `nix-overlay`
+
 This is Hack Club's [nix](https://nixos.org) overlay used to package the projects made by the community for nix.
 
 ## Usage
 
 ### Flakes
 
-*RECOMMENDED USAGE:* 
+_RECOMMENDED USAGE:_
 Add the packages to your `home.packages` or `environment.systemPackages` by adding `hackclub` as an input:
+
 ```nix
 # flake.nix
 {
-  ...
+  # ...
   inputs.hackclub.url = "github:hackclub/nix-overlay";
 }
 ```
@@ -26,7 +28,7 @@ let
 in
 {
   # install packages
-  environment.systemPackages = [ 
+  environment.systemPackages = [
     hackclub.packages.x86_64-linux.<package>
   ];
 
@@ -36,5 +38,3 @@ in
   ];
 }
 ```
-
-
