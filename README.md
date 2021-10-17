@@ -34,12 +34,11 @@ To use without flakes:
 
 ```nix
 let
-  # You can also use fetchGit without a rev, but it makes it impure, meaning it'll be refetched
-  # for no reason occasionally (1 hour by default)
-  hackclub-overlay = import (builtins.fetchGit {
-    url = "https://github.com/hackclub/nix-overlay.git";
-    name = "hackclub-nix-overlay";
-    rev = "<latest HEAD rev>"; # at the time of writing, 42e5cca32712f31fa7bab8e02030050cd94b85b7
+  # At the time of writing, latest rev is 42e5cca32712f31fa7bab8e02030050cd94b85b7
+  # Make sure to add a sha256 so that it isn't unnecessarily refetched
+  hackclub-overlay = import (builtins.fetchTarball {
+    url = "https://github.com/hackclub/nix-overlay/archive/<rev>.tar.gz";
+    sha256 = "NIX_BUILD_RETURNS_ERROR_PUT_SHA256_HERE";
   });
   pkgs = import <nixpkgs> { overlays = [ hackclub-overlay ]; };
 in
