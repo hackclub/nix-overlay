@@ -22,4 +22,4 @@ jobs:
     - name: Cache flake inputs
       run: nix flake archive --json | jq -r '.path,(..|.inputs?|select(.)|to_entries[].value.path)' | cachix push hackclub
     - name: Build all flake packages
-    - run: nix eval --raw -f ci/pkg-names.nix | xargs nix build --no-link
+      run: nix eval --raw -f ci/pkg-names.nix | xargs nix build --no-link
