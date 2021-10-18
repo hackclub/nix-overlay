@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     sepia.url = "github:rishiosaur/sepiago";
+    aces.url = "github:quackduck/aces";
   };
 
   outputs = extraPkgs''@{ self, nixpkgs, ... }:
